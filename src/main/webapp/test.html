@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/echarts.js"></script>
+<script src="js/macarons.js"></script>
+<!--<script src="js/echarts.min.js"></script>-->
+11111
+<body>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'),'macarons');
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: 'ECharts 入门示例'
+            },
+            color: ['#c23531','#2f4554', '#61a0a8', '#d48265', '#91c7ae','#749f83',  '#ca8622', '#bda29a','#6e7074', '#546570', '#c4ccd3'],
+            backgroundColor: '#2c343c',
+            textStyle: {
+                color: 'rgba(255, 255, 255, 0.3)'
+            },
+            series: [{
+                name: '销量',
+                type: 'pie',
+                roseType: 'angle',
+                data: [{name: 'A', value: 50},
+                {name: 'B', value: 20},
+                {name: 'C', value: 30}],
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 200,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        // myChart.setOption(option);
+        $.ajax({
+            url:"/SpringMvc/demo/getTableInfo",
+            data:null,
+            success:function (data) {
+                
+            }
+        })
+    </script>
+</body>
+
+</html>
